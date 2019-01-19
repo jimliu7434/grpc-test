@@ -5,6 +5,10 @@
   "repository": "https://github.com/jimliu7434/grpc-test.git",
   "author": "jimliu <jimliu7434@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "call": "node_modules/.bin/grpcc -i -p proto/hello.proto -a 127.0.0.1:4501"
+  },
   "dependencies": {
     "@grpc/proto-loader": "~0.3.0",
     "grpc": "^1.18.0",
