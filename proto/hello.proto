@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+service HelloWorld {
+    rpc hw (HelloWorldRequest) returns (HelloWorldResponse) {};
+    rpc add (AddRequest) returns (AddResponse) {};
+    rpc sub (SubRequest) returns (SubResponse) {};
+    rpc multi (MultiRequest) returns (MultiResponse) {};
+    rpc divi (DiviRequest) returns (DiviResponse) {};
+}
+
+message HelloWorldRequest {
+    string msg = 1;
+}
+
+message HelloWorldResponse {
+    string msg = 1;
+    int32 ts = 2;
+}
+
+message BaseRequest {
+    int32 v1 = 1;
+    int32 v2 = 2;
+}
+
+message AddRequest {
+    required BaseRequest nums = 1;
+}
+
+message SubRequest {
+    required BaseRequest nums = 1;
+}
+
+message MultiRequest {
+    required BaseRequest nums = 1;
+}
+
+message DiviRequest {
+    required BaseRequest nums = 1;
+}
+
+message BaseResponse {
+    int32 v = 1;
+    int32 ts = 2;
+}
+
+message AddResponse {
+    BaseResponse result = 1;
+}
+
+message SubResponse {
+    BaseResponse result = 1;
+}
+
+message MultiResponse {
+    BaseResponse result = 1;
+}
+
+message DiviResponse {
+    BaseResponse result = 1;
+    string error = 2;
+}
